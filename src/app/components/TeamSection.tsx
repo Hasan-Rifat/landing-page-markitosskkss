@@ -171,27 +171,28 @@ export default function TeamSection() {
         animate={{ opacity: 1 }}
         transition={{ duration: 1 }}
       >
-        {[...Array(30)].map((_, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-1 h-1 bg-white rounded-full"
-            initial={{
-              x: Math.random() * window.innerWidth,
-              y: Math.random() * window.innerHeight,
-              opacity: 0,
-            }}
-            animate={{
-              opacity: [0, 0.5, 0],
-              scale: [0, 1.5, 0],
-            }}
-            transition={{
-              duration: 3,
-              delay: i * 0.2,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "loop",
-            }}
-          />
-        ))}
+        {typeof window !== "undefined" &&
+          [...Array(30)].map((_, i) => (
+            <motion.div
+              key={i}
+              className="absolute w-1 h-1 bg-white rounded-full"
+              initial={{
+                x: Math.random() * window.innerWidth,
+                y: Math.random() * window.innerHeight,
+                opacity: 0,
+              }}
+              animate={{
+                opacity: [0, 0.5, 0],
+                scale: [0, 1.5, 0],
+              }}
+              transition={{
+                duration: 3,
+                delay: i * 0.2,
+                repeat: Number.POSITIVE_INFINITY,
+                repeatType: "loop",
+              }}
+            />
+          ))}
       </motion.div>
     </section>
   );
